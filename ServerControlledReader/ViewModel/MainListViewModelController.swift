@@ -17,7 +17,7 @@ class MainListViewModelController {
     
     func retrieveMainLists(_ success: (() -> Void)?, failure: ( () -> Void)?)  {
         do{
-            dataManager.reset()
+//            dataManager.reset()
 //            dataManager.makeFakeData()
 
             let list = try dataManager.retrieveMainList()

@@ -48,9 +48,9 @@ class MainListLocalDataManager {
     
     func reset()  {
         let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
-        let results = try? persistentContainer.viewContext.fetch(request)
+        let results = try? backgroundContext.fetch(request)
         for item in results! {
-            persistentContainer.viewContext.delete(item)
+            backgroundContext.delete(item)
         }
         save()
     }
@@ -61,11 +61,11 @@ class MainListLocalDataManager {
         
     }
     
-//    func makeFakeData() {
-//        insertMainListItem(commentURL: "df", type: "dd")
-//         insertMainListItem(commentURL: "df22", type: "dd")
-//        save()
-//    }
+    func makeFakeData() {
+        insertMainListItem(commentURL: "df", type: "dd")
+         insertMainListItem(commentURL: "df22", type: "dd")
+        save()
+    }
     
     func  save() {
         if backgroundContext.hasChanges {
