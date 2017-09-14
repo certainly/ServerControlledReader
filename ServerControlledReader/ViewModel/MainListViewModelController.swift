@@ -17,6 +17,7 @@ class MainListViewModelController {
     
     func retrieveMainLists(_ success: (() -> Void)?, failure: ( () -> Void)?)  {
         do{
+            
 //            let list = try dataManager.retrieveMainList()
             mainlistViewModelList =  retrieveMainListsStub()
             success?()
@@ -30,8 +31,10 @@ class MainListViewModelController {
         var rz = [MainListViewModel]()
         let data1 = MainListViewModel(displayText: "testdata111")
         let data2 = MainListViewModel(displayText: "testdata2222")
+      let data3 = MainListViewModel(displayText: "testdata3")
         rz.append(data1)
         rz.append(data2)
+        rz.append(data3)
         return rz
     }
     
