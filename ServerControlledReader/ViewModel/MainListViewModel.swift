@@ -8,4 +8,10 @@
 
 public struct MainListViewModel {
     var displayText: String
+    init(withItem item: MainListItem ) {
+        self.displayText = item.commentURL ?? "nil"
+    }
+    init(displayText: String){
+        self.displayText = displayText
+    }
 }
