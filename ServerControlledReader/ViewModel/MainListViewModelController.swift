@@ -17,9 +17,11 @@ class MainListViewModelController {
     
     func retrieveMainLists(_ success: (() -> Void)?, failure: ( () -> Void)?)  {
         do{
-            
-//            let list = retrieveMainListsStub()
-            mainlistViewModelList =  retrieveMainListsStub()
+            dataManager.reset()
+//            dataManager.makeFakeData()
+
+            let list = try dataManager.retrieveMainList()
+            mainlistViewModelList = list.map(){MainListViewModel(withItem: $0 ) }
             success?()
         } catch {
             print(error)
