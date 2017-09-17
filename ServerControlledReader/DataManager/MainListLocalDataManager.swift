@@ -39,9 +39,9 @@ class MainListLocalDataManager {
     }
     
     
-    func retrieveMainList()  -> [MainListItem] {
+    func retrieveMainList() throws  -> [MainListItem] {
         let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
-        let results = try? persistentContainer.viewContext.fetch(request)
+        let results = try persistentContainer.viewContext.fetch(request)
         return results ?? [MainListItem]()
         
     }
@@ -68,6 +68,7 @@ class MainListLocalDataManager {
     }
     
     func insertDataArray(_ array: [JSONItem]) {
+        reset()
         for item in array {
             _ = insertMainListItem(commentURL: item.content, type: item.source)
         }

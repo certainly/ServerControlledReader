@@ -50,7 +50,13 @@ class MainListTableViewController: UITableViewController {
         return itemCell
     }
     
-
+    @IBAction func refreshTapped(_ sender: UIBarButtonItem) {
+        mainlistViewModelController.refreshMainLists({ [unowned self] in
+            print("reload...")
+//            self.tableView.reloadData()
+            }, failure: nil)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

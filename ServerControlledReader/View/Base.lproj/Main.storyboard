@@ -31,7 +31,13 @@
                             <outlet property="delegate" destination="gzb-dD-Yef" id="Le3-YO-N9v"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="MainScreen" id="a8K-fU-k0y"/>
+                    <navigationItem key="navigationItem" title="MainScreen" id="a8K-fU-k0y">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="UHq-OT-wZY">
+                            <connections>
+                                <action selector="refreshTapped:" destination="gzb-dD-Yef" id="T3C-ZU-2ib"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1c9-uH-y0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

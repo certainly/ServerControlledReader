@@ -14,6 +14,10 @@
 		5C1292431F6A353700B28D60 /* MainListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1292421F6A353700B28D60 /* MainListViewModel.swift */; };
 		5C1292451F6A36EC00B28D60 /* MainListViewModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1292441F6A36EC00B28D60 /* MainListViewModelController.swift */; };
 		5C1292471F6A5E7300B28D60 /* MainListLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1292461F6A5E7300B28D60 /* MainListLocalDataManager.swift */; };
+		5C1292571F6A7A2800B28D60 /* MainListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1292561F6A7A2800B28D60 /* MainListTests.swift */; };
+		5C12925E1F6A7A2E00B28D60 /* MainListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1292481F6A718800B28D60 /* MainListViewModelTests.swift */; };
+		5CC058241F6E6B2C00DBFF3A /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC058231F6E6B2C00DBFF3A /* NetworkProvider.swift */; };
+		5CC058261F6E6BA900DBFF3A /* JSONItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC058251F6E6BA900DBFF3A /* JSONItem.swift */; };
 		5CC8E1571F68E04800E47741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC8E1561F68E04800E47741 /* AppDelegate.swift */; };
 		5CC8E15C1F68E04800E47741 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CC8E15A1F68E04800E47741 /* Main.storyboard */; };
 		5CC8E15F1F68E04800E47741 /* ServerControlledReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5CC8E15D1F68E04800E47741 /* ServerControlledReader.xcdatamodeld */; };
@@ -25,6 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5C1292591F6A7A2800B28D60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CC8E14B1F68E04800E47741 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CC8E1521F68E04800E47741;
+			remoteInfo = ServerControlledReader;
+		};
 		5CC8E16B1F68E04800E47741 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5CC8E14B1F68E04800E47741 /* Project object */;
@@ -48,6 +59,12 @@
 		5C1292421F6A353700B28D60 /* MainListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewModel.swift; sourceTree = "<group>"; };
 		5C1292441F6A36EC00B28D60 /* MainListViewModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewModelController.swift; sourceTree = "<group>"; };
 		5C1292461F6A5E7300B28D60 /* MainListLocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListLocalDataManager.swift; sourceTree = "<group>"; };
+		5C1292481F6A718800B28D60 /* MainListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewModelTests.swift; sourceTree = "<group>"; };
+		5C1292541F6A7A2800B28D60 /* MainListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MainListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C1292561F6A7A2800B28D60 /* MainListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListTests.swift; sourceTree = "<group>"; };
+		5C1292581F6A7A2800B28D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CC058231F6E6B2C00DBFF3A /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		5CC058251F6E6BA900DBFF3A /* JSONItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONItem.swift; sourceTree = "<group>"; };
 		5CC8E1531F68E04800E47741 /* ServerControlledReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServerControlledReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC8E1561F68E04800E47741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CC8E15B1F68E04800E47741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +82,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5C1292511F6A7A2800B28D60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CC8E1501F68E04800E47741 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -92,6 +116,7 @@
 		5C12922B1F691EC600B28D60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5CC8E15A1F68E04800E47741 /* Main.storyboard */,
 				5CC8E1871F68E0E100E47741 /* MainListTableViewController.swift */,
 				5C1292401F6A349800B28D60 /* MainListTableViewCell.swift */,
 			);
@@ -103,6 +128,7 @@
 			children = (
 				5C12923C1F6973D000B28D60 /* MainListItem+CoreDataClass.swift */,
 				5C12923D1F6973D000B28D60 /* MainListItem+CoreDataProperties.swift */,
+				5CC058251F6E6BA900DBFF3A /* JSONItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,12 +151,30 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		5C1292551F6A7A2800B28D60 /* MainListTests */ = {
+			isa = PBXGroup;
+			children = (
+				5C1292561F6A7A2800B28D60 /* MainListTests.swift */,
+				5C1292581F6A7A2800B28D60 /* Info.plist */,
+			);
+			path = MainListTests;
+			sourceTree = "<group>";
+		};
+		5CC058221F6E6AE000DBFF3A /* NeworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				5CC058231F6E6B2C00DBFF3A /* NetworkProvider.swift */,
+			);
+			path = NeworkManager;
+			sourceTree = "<group>";
+		};
 		5CC8E14A1F68E04800E47741 = {
 			isa = PBXGroup;
 			children = (
 				5CC8E1551F68E04800E47741 /* ServerControlledReader */,
 				5CC8E16D1F68E04800E47741 /* ServerControlledReaderTests */,
 				5CC8E1781F68E04800E47741 /* ServerControlledReaderUITests */,
+				5C1292551F6A7A2800B28D60 /* MainListTests */,
 				5CC8E1541F68E04800E47741 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -141,6 +185,7 @@
 				5CC8E1531F68E04800E47741 /* ServerControlledReader.app */,
 				5CC8E16A1F68E04800E47741 /* ServerControlledReaderTests.xctest */,
 				5CC8E1751F68E04800E47741 /* ServerControlledReaderUITests.xctest */,
+				5C1292541F6A7A2800B28D60 /* MainListTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,12 +193,12 @@
 		5CC8E1551F68E04800E47741 /* ServerControlledReader */ = {
 			isa = PBXGroup;
 			children = (
+				5CC058221F6E6AE000DBFF3A /* NeworkManager */,
 				5C12922F1F691F7A00B28D60 /* ViewModel */,
 				5C12922E1F691F2100B28D60 /* DataManager */,
 				5C12922C1F691EE700B28D60 /* Model */,
 				5C12922B1F691EC600B28D60 /* View */,
 				5CC8E1561F68E04800E47741 /* AppDelegate.swift */,
-				5CC8E15A1F68E04800E47741 /* Main.storyboard */,
 				5CC8E1601F68E04800E47741 /* Assets.xcassets */,
 				5CC8E1621F68E04800E47741 /* LaunchScreen.storyboard */,
 				5CC8E1651F68E04800E47741 /* Info.plist */,
@@ -166,6 +211,7 @@
 			children = (
 				5CC8E16E1F68E04800E47741 /* ServerControlledReaderTests.swift */,
 				5CC8E1701F68E04800E47741 /* Info.plist */,
+				5C1292481F6A718800B28D60 /* MainListViewModelTests.swift */,
 			);
 			path = ServerControlledReaderTests;
 			sourceTree = "<group>";
@@ -182,6 +228,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5C1292531F6A7A2800B28D60 /* MainListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C12925B1F6A7A2800B28D60 /* Build configuration list for PBXNativeTarget "MainListTests" */;
+			buildPhases = (
+				5C1292501F6A7A2800B28D60 /* Sources */,
+				5C1292511F6A7A2800B28D60 /* Frameworks */,
+				5C1292521F6A7A2800B28D60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5C12925A1F6A7A2800B28D60 /* PBXTargetDependency */,
+			);
+			name = MainListTests;
+			productName = MainListTests;
+			productReference = 5C1292541F6A7A2800B28D60 /* MainListTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5CC8E1521F68E04800E47741 /* ServerControlledReader */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CC8E17E1F68E04800E47741 /* Build configuration list for PBXNativeTarget "ServerControlledReader" */;
@@ -245,6 +309,11 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = certainly;
 				TargetAttributes = {
+					5C1292531F6A7A2800B28D60 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5CC8E1521F68E04800E47741;
+					};
 					5CC8E1521F68E04800E47741 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -277,11 +346,19 @@
 				5CC8E1521F68E04800E47741 /* ServerControlledReader */,
 				5CC8E1691F68E04800E47741 /* ServerControlledReaderTests */,
 				5CC8E1741F68E04800E47741 /* ServerControlledReaderUITests */,
+				5C1292531F6A7A2800B28D60 /* MainListTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5C1292521F6A7A2800B28D60 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CC8E1511F68E04800E47741 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,6 +386,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5C1292501F6A7A2800B28D60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C1292571F6A7A2800B28D60 /* MainListTests.swift in Sources */,
+				5C12925E1F6A7A2E00B28D60 /* MainListViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CC8E14F1F68E04800E47741 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -321,7 +407,9 @@
 				5CC8E1571F68E04800E47741 /* AppDelegate.swift in Sources */,
 				5C1292411F6A349800B28D60 /* MainListTableViewCell.swift in Sources */,
 				5C12923F1F6973D000B28D60 /* MainListItem+CoreDataProperties.swift in Sources */,
+				5CC058261F6E6BA900DBFF3A /* JSONItem.swift in Sources */,
 				5C1292451F6A36EC00B28D60 /* MainListViewModelController.swift in Sources */,
+				5CC058241F6E6B2C00DBFF3A /* NetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +433,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5C12925A1F6A7A2800B28D60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CC8E1521F68E04800E47741 /* ServerControlledReader */;
+			targetProxy = 5C1292591F6A7A2800B28D60 /* PBXContainerItemProxy */;
+		};
 		5CC8E16C1F68E04800E47741 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5CC8E1521F68E04800E47741 /* ServerControlledReader */;
@@ -377,6 +470,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5C12925C1F6A7A2800B28D60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 62ZVP5G4A2;
+				INFOPLIST_FILE = MainListTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.certainly.MainListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ServerControlledReader.app/ServerControlledReader";
+			};
+			name = Debug;
+		};
+		5C12925D1F6A7A2800B28D60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 62ZVP5G4A2;
+				INFOPLIST_FILE = MainListTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.certainly.MainListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ServerControlledReader.app/ServerControlledReader";
+			};
+			name = Release;
+		};
 		5CC8E17C1F68E04800E47741 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -583,6 +708,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5C12925B1F6A7A2800B28D60 /* Build configuration list for PBXNativeTarget "MainListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C12925C1F6A7A2800B28D60 /* Debug */,
+				5C12925D1F6A7A2800B28D60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5CC8E14E1F68E04800E47741 /* Build configuration list for PBXProject "ServerControlledReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

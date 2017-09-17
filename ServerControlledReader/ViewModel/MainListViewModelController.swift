@@ -25,6 +25,7 @@ class MainListViewModelController {
             if list.count == 0 {
                 print("empty list!")
                 fetchFromServer(success)
+                return
             }
             
             mainlistViewModelList = list.map(){MainListViewModel(withItem: $0 ) }
@@ -36,8 +37,17 @@ class MainListViewModelController {
         }
     }
     
-    private func fetchFromServer(_ success: (() -> Void)?) {
-        NetworkProvider.fetchMainList { [unowned self] data in
+    func refreshMainLists(_ success: (() -> Void)?, failure: ( () -> Void)?)  {
+        do{
+            fetchFromServer(update: true, success)
+        } catch {
+            print(error)
+            failure?()
+        }
+    }
+    
+    private func fetchFromServer(update: Bool = false,  _ success: (() -> Void)?) {
+        NetworkProvider.fetchMainList(update: update) { [unowned self] data in
             print("exe suc")
             self.dataManager.insertDataArray(data)
             DispatchQueue.main.async {

@@ -16,8 +16,15 @@ enum Result<Value> {
 
 class NetworkProvider {
     
-    static func fetchMainList(_ success: (([JSONItem]) -> Void)?) {
-        let url = "http://104.194.77.164:8083/api/v1/posts/sort"
+    static func fetchMainList(update: Bool, _ success: (([JSONItem]) -> Void)?) {
+        let url:String
+//        let host = "http://104.194.77.164:8083"
+        let host = "http://10.0.0.9:8083"
+        if update {
+            url = host + "/api/v1/posts/refresh"
+        } else {
+            url = host + "/api/v1/posts/sort"
+        }
          getPosts(requesturl: url) { (result) in
             switch result {
             case .success(let posts):
