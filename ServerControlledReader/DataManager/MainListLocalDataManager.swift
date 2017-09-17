@@ -49,7 +49,7 @@ class MainListLocalDataManager {
 //        let sort = NSSortDescriptor(key: #keyPath(MainListItem.time), ascending: true)
 //        fetchRequest.sortDescriptors = [sort]
         let results = try backgroundContext.fetch(request)
-        return results ?? [MainListItem]()
+        return results 
         
     }
     

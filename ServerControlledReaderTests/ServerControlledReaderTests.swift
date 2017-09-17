@@ -37,8 +37,8 @@ class ServerControlledReaderTests: XCTestCase {
     func initStubs() {
         func insertItem(commentURL: String, type: String) -> MainListItem? {
             let obj = NSEntityDescription.insertNewObject(forEntityName: "MainListItem", into: mockPersistantContainer.viewContext)
-            obj.setValue(commentURL, forKey: "commentURL")
-            obj.setValue(type, forKey: "type")
+            obj.setValue(commentURL, forKey: "content")
+            obj.setValue(type, forKey: "source")
             
             return obj as? MainListItem
         }
@@ -83,23 +83,23 @@ class ServerControlledReaderTests: XCTestCase {
     }
     
     func test_create_item()  {
-        let commentURL = "http://ddd"
-        let type = "v2ex"
+        let content = "http://ddd"
         
-        let item = sut.insertMainListItem(commentURL: commentURL, type: type)
+        
+        let item = sut.insertMainListItem(cid: Int64(565656), content: content, time: 1545454, source: "hn", kids: "", other: "")
         
         XCTAssertNotNil(item)
     }
     
-    func test_fetch_all_todo()  {
-        let results = sut.retrieveMainList()
+    func test_fetch_all_todo()  throws {
+        let results = try sut.retrieveMainList()
         XCTAssertEqual(results.count, 5)
     }
     
-    func test_remove_todo() {
+    func test_remove_todo()  throws {
         
         //Given a item in persistent store
-        let items = sut.retrieveMainList()
+        let items = try sut.retrieveMainList()
         let item = items[0]
         
         let numberOfItems = items.count
@@ -116,13 +116,12 @@ class ServerControlledReaderTests: XCTestCase {
     func test_save() {
 
         //Give a todo item
-        let commentURL = "http://test"
+        let content = "http://test"
         let type = "hack"
 
         _ = expectationForSaveNotification()
 
-        _ = sut.insertMainListItem(commentURL: commentURL, type: type)
-        //When save
+        _ = sut.insertMainListItem(cid: Int64(565656), content: content, time: 1545454, source: "hn", kids: "", other: "")
         sut.save()
 
         //Assert save is called via notification (wait)
