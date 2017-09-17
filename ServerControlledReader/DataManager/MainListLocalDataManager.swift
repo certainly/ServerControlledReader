@@ -17,6 +17,7 @@ class MainListLocalDataManager {
     init(container: NSPersistentContainer) {
         self.persistentContainer = container
         self.persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
+        
     }
     
     lazy var backgroundContext: NSManagedObjectContext = {
@@ -41,7 +42,7 @@ class MainListLocalDataManager {
     
     func retrieveMainList() throws  -> [MainListItem] {
         let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
-        let results = try persistentContainer.viewContext.fetch(request)
+        let results = try backgroundContext.fetch(request)
         return results ?? [MainListItem]()
         
     }
@@ -67,8 +68,10 @@ class MainListLocalDataManager {
         save()
     }
     
+
+    
     func insertDataArray(_ array: [JSONItem]) {
-        reset()
+       reset()
         for item in array {
             _ = insertMainListItem(commentURL: item.content, type: item.source)
         }

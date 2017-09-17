@@ -22,12 +22,12 @@ class MainListViewModelController {
 
             let list = try dataManager.retrieveMainList()
             
-            if list.count == 0 {
-                print("empty list!")
-                fetchFromServer(success)
-                return
-            }
-            
+//            if list.count == 0 {
+//                print("empty list!")
+//                fetchFromServer(success)
+//                return
+//            }
+            mainlistViewModelList.removeAll()
             mainlistViewModelList = list.map(){MainListViewModel(withItem: $0 ) }
             success?()
             print("retrieve over")
@@ -39,7 +39,7 @@ class MainListViewModelController {
     
     func refreshMainLists(_ success: (() -> Void)?, failure: ( () -> Void)?)  {
         do{
-            fetchFromServer(update: true, success)
+            fetchFromServer(update: false, success)
         } catch {
             print(error)
             failure?()
