@@ -1,23 +1,18 @@
 //
-//  MainListTableViewController.swift
+//  DetailTableViewController.swift
 //  ServerControlledReader
 //
-//  Created by certainly on 2017/9/13.
+//  Created by certainly on 2017/9/17.
 //  Copyright © 2017年 certainly. All rights reserved.
 //
 
 import UIKit
 
-class MainListTableViewController: UITableViewController {
+class DetailTableViewController: UITableViewController {
 
-    let mainlistViewModelController = MainListViewModelController()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainlistViewModelController.retrieveMainLists({ [unowned self] in
-           print("reload...")
-            self.tableView.reloadData()
-            }, failure: nil)
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -32,33 +27,26 @@ class MainListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 0
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return mainlistViewModelController.itemsCount
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "mainListCell", for: indexPath) as? MainListTableViewCell
-        guard let itemCell = cell else { return UITableViewCell() }
-        itemCell.cellModel = mainlistViewModelController.viewModel(at: indexPath.row)
-        return itemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
     }
-    
-    @IBAction func refreshTapped(_ sender: UIBarButtonItem) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        mainlistViewModelController.refreshMainLists({ [unowned self] in
-            print("reload...")
-             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            self.tableView.reloadData()
-            }, failure: nil)
-    }
-    
+    */
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
