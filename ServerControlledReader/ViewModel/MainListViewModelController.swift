@@ -21,11 +21,29 @@ class MainListViewModelController {
 //            dataManager.makeFakeData()
 
             let list = try dataManager.retrieveMainList()
+            
+            if list.count == 0 {
+                print("empty list!")
+                fetchFromServer(success)
+            }
+            
             mainlistViewModelList = list.map(){MainListViewModel(withItem: $0 ) }
             success?()
+            print("retrieve over")
         } catch {
             print(error)
             failure?()
+        }
+    }
+    
+    private func fetchFromServer(_ success: (() -> Void)?) {
+        NetworkProvider.fetchMainList { [unowned self] data in
+            print("exe suc")
+            self.dataManager.insertDataArray(data)
+            DispatchQueue.main.async {
+                self.retrieveMainLists(success, failure: nil)
+            }
+            
         }
     }
     

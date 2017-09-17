@@ -62,8 +62,15 @@ class MainListLocalDataManager {
     }
     
     func makeFakeData() {
-        insertMainListItem(commentURL: "df", type: "dd")
-         insertMainListItem(commentURL: "df22", type: "dd")
+        _ = insertMainListItem(commentURL: "df", type: "dd")
+        _ = insertMainListItem(commentURL: "df22", type: "dd")
+        save()
+    }
+    
+    func insertDataArray(_ array: [JSONItem]) {
+        for item in array {
+            _ = insertMainListItem(commentURL: item.content, type: item.source)
+        }
         save()
     }
     

@@ -15,7 +15,7 @@ class MainListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainlistViewModelController.retrieveMainLists({ [unowned self] in
-           
+           print("reload...")
             self.tableView.reloadData()
             }, failure: nil)
         // Uncomment the following line to preserve selection between presentations
