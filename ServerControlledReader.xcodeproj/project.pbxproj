@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5C1292321F6927FA00B28D60 /* ServerControlledReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5CC8E15D1F68E04800E47741 /* ServerControlledReader.xcdatamodeld */; };
-		5C12923E1F6973D000B28D60 /* MainListItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C12923C1F6973D000B28D60 /* MainListItem+CoreDataClass.swift */; };
-		5C12923F1F6973D000B28D60 /* MainListItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C12923D1F6973D000B28D60 /* MainListItem+CoreDataProperties.swift */; };
 		5C1292411F6A349800B28D60 /* MainListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1292401F6A349800B28D60 /* MainListTableViewCell.swift */; };
 		5C1292431F6A353700B28D60 /* MainListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1292421F6A353700B28D60 /* MainListViewModel.swift */; };
 		5C1292451F6A36EC00B28D60 /* MainListViewModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1292441F6A36EC00B28D60 /* MainListViewModelController.swift */; };
@@ -54,8 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C12923C1F6973D000B28D60 /* MainListItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainListItem+CoreDataClass.swift"; sourceTree = "<group>"; };
-		5C12923D1F6973D000B28D60 /* MainListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainListItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5C1292401F6A349800B28D60 /* MainListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListTableViewCell.swift; sourceTree = "<group>"; };
 		5C1292421F6A353700B28D60 /* MainListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewModel.swift; sourceTree = "<group>"; };
 		5C1292441F6A36EC00B28D60 /* MainListViewModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewModelController.swift; sourceTree = "<group>"; };
@@ -129,8 +125,6 @@
 		5C12922C1F691EE700B28D60 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5C12923C1F6973D000B28D60 /* MainListItem+CoreDataClass.swift */,
-				5C12923D1F6973D000B28D60 /* MainListItem+CoreDataProperties.swift */,
 				5CC058251F6E6BA900DBFF3A /* JSONItem.swift */,
 			);
 			path = Model;
@@ -405,12 +399,10 @@
 				5CC05A071F6E9D6D00DBFF3A /* DetailTableViewController.swift in Sources */,
 				5C1292471F6A5E7300B28D60 /* MainListLocalDataManager.swift in Sources */,
 				5CC8E1881F68E0E100E47741 /* MainListTableViewController.swift in Sources */,
-				5C12923E1F6973D000B28D60 /* MainListItem+CoreDataClass.swift in Sources */,
 				5CC8E15F1F68E04800E47741 /* ServerControlledReader.xcdatamodeld in Sources */,
 				5C1292431F6A353700B28D60 /* MainListViewModel.swift in Sources */,
 				5CC8E1571F68E04800E47741 /* AppDelegate.swift in Sources */,
 				5C1292411F6A349800B28D60 /* MainListTableViewCell.swift in Sources */,
-				5C12923F1F6973D000B28D60 /* MainListItem+CoreDataProperties.swift in Sources */,
 				5CC058261F6E6BA900DBFF3A /* JSONItem.swift in Sources */,
 				5C1292451F6A36EC00B28D60 /* MainListViewModelController.swift in Sources */,
 				5CC058241F6E6B2C00DBFF3A /* NetworkProvider.swift in Sources */,

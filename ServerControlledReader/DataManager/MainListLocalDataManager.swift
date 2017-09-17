@@ -32,18 +32,22 @@ class MainListLocalDataManager {
     }
     
     
-    func insertMainListItem(commentURL: String, type: String ) -> MainListItem? {
+    func insertMainListItem(cid: Int64, content: String, time: Double, source: String, kids: String, other: String) -> MainListItem? {
         guard let item = NSEntityDescription.insertNewObject(forEntityName: "MainListItem", into: backgroundContext) as? MainListItem else { return nil }
-        item.commentURL = commentURL
-        item.type = type
+        item.cid = cid
+        item.content = content
+        item.time = time
+        item.source = source
+        item.kids = kids
+        item.other = other
         return item
     }
     
     
     func retrieveMainList() throws  -> [MainListItem] {
         let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
-        let sort = NSSortDescriptor(key: #keyPath(MainListItem.time), ascending: true)
-        fetchRequest.sortDescriptors = [sort]
+//        let sort = NSSortDescriptor(key: #keyPath(MainListItem.time), ascending: true)
+//        fetchRequest.sortDescriptors = [sort]
         let results = try backgroundContext.fetch(request)
         return results ?? [MainListItem]()
         
@@ -65,8 +69,8 @@ class MainListLocalDataManager {
     }
     
     func makeFakeData() {
-        _ = insertMainListItem(commentURL: "df", type: "dd")
-        _ = insertMainListItem(commentURL: "df22", type: "dd")
+//        _ = insertMainListItem(commentURL: "df", type: "dd")
+//        _ = insertMainListItem(commentURL: "df22", type: "dd")
         save()
     }
     
@@ -75,7 +79,7 @@ class MainListLocalDataManager {
     func insertDataArray(_ array: [JSONItem]) {
        reset()
         for item in array {
-            _ = insertMainListItem(commentURL: item.content, type: item.source)
+            _ = insertMainListItem(cid: Int64(item.cid), content: item.content, time: item.time, source: item.source, kids: item.kids, other: item.other)
         }
         save()
     }

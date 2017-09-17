@@ -14,6 +14,7 @@ class MainListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         mainlistViewModelController.retrieveMainLists({ [unowned self] in
            print("reload...")
             self.tableView.reloadData()
@@ -46,6 +47,7 @@ class MainListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainListCell", for: indexPath) as? MainListTableViewCell
         guard let itemCell = cell else { return UITableViewCell() }
+        itemCell.textLabel?.numberOfLines=0
         itemCell.cellModel = mainlistViewModelController.viewModel(at: indexPath.row)
         return itemCell
     }
