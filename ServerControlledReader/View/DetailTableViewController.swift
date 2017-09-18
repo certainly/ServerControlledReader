@@ -9,7 +9,11 @@
 import UIKit
 
 class DetailTableViewController: UITableViewController {
-
+    
+    var parentDataIdx: Int!
+    let detailListViewModelController = DetailListViewModelController()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,26 +30,19 @@ class DetailTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return detailListViewModelController.itemsCount
     }
-
-    /*
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detailListCell", for: indexPath) as? DetailListTableViewCell
+        guard let itemCell = cell else { return UITableViewCell() }
+        itemCell.textLabel?.numberOfLines=0
+        itemCell.cellModel = detailListViewModelController.viewModel(at: indexPath.row)
+        return itemCell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

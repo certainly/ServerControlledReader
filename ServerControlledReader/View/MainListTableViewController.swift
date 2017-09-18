@@ -106,7 +106,7 @@ class MainListTableViewController: UITableViewController {
         if segue.identifier == "DetailSegue" {
             let detailTableViewController = segue.destination as! DetailTableViewController
             let index = tableView.indexPathForSelectedRow!.row
-            
+            detailTableViewController.parentDataIdx = index
             
         }
     }
