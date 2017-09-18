@@ -17,21 +17,12 @@ class MainListViewModelController {
     
     func retrieveMainLists(_ success: (() -> Void)?, failure: ( () -> Void)?)  {
         do{
-//            dataManager.reset()
-//            dataManager.makeFakeData()
+
 
             let list = try dataManager.retrieveMainList()
             
-//            if list.count == 0 {
-//                print("empty list!")
-//                fetchFromServer(success)
-//                return
-//            }
             mainlistViewModelList.removeAll()
             mainlistViewModelList = list.map(){MainListViewModel(withItem: $0 ) }
-            
-            
-            
             success?()
             print("retrieve over")
         } catch {

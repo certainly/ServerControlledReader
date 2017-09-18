@@ -33,6 +33,14 @@ class MainListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    
+
+    
+//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        cell.backgroundColor = UIColor(red: 246 / 255.0, green: 247/255.0, blue: 235/255, alpha: 1.0)
+//    }
+    
+
 //    override func numberOfSections(in tableView: UITableView) -> Int {
 //        // #warning Incomplete implementation, return the number of sections
 //        return 1
