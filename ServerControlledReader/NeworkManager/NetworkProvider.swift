@@ -23,7 +23,7 @@ class NetworkProvider {
         if update {
             url = host + "/api/v1/posts/refresh"
         } else {
-            url = host + "/api/v1/posts/sort"
+            url = host + "/api/v1/posts/all"
         }
          getPosts(requesturl: url) { (result) in
             switch result {

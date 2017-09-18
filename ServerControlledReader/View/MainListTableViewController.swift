@@ -55,7 +55,7 @@ class MainListTableViewController: UITableViewController {
     @IBAction func refreshTapped(_ sender: UIBarButtonItem) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         mainlistViewModelController.refreshMainLists({ [unowned self] in
-            print("reload...")
+            print("refreshTapped...")
              UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.tableView.reloadData()
             }, failure: nil)
@@ -96,14 +96,20 @@ class MainListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "DetailSegue" {
+            let detailTableViewController = segue.destination as! DetailTableViewController
+            let index = tableView.indexPathForSelectedRow!.row
+            
+            
+        }
     }
-    */
+    
 
 }
