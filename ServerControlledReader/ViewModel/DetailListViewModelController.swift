@@ -10,6 +10,7 @@ import Foundation
 
 class DetailListViewModelController {
     
+   
     fileprivate var detailListViewModelList: [DetailListViewModel] = []
     fileprivate var dataManager = MainListLocalDataManager()
     
@@ -19,5 +20,27 @@ class DetailListViewModelController {
     
     func viewModel(at index: Int) -> DetailListViewModel {
         return detailListViewModelList[index]
+    }
+    
+    func retrieveDetailList(cid: String, _ success: (() -> Void)?, failure: ( () -> Void)?)  {
+        do{
+            //            dataManager.reset()
+            //            dataManager.makeFakeData()
+            
+            let list = try  dataManager.retrieveDetailList(cid)
+            
+            //            if list.count == 0 {
+            //                print("empty list!")
+            //                fetchFromServer(success)
+            //                return
+            //            }
+            detailListViewModelList.removeAll()
+            detailListViewModelList = list.map(){DetailListViewModel(withItem: $0 ) }
+            success?()
+            print("retrieve over")
+        } catch {
+            print(error)
+            failure?()
+        }
     }
 }

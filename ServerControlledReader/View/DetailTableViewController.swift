@@ -10,12 +10,18 @@ import UIKit
 
 class DetailTableViewController: UITableViewController {
     
-    var parentDataIdx: Int!
+    var parentId: String!
+    
     let detailListViewModelController = DetailListViewModelController()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        detailListViewModelController.retrieveDetailList(cid: parentId,  { [unowned self] in
+            print("reload...")
+            self.tableView.reloadData()
+            }, failure: nil)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

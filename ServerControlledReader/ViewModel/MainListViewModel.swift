@@ -8,10 +8,12 @@
 
 public struct MainListViewModel {
     var displayText: String
+    var cid: String
     init(withItem item: MainListItem ) {
         self.displayText = item.content ?? "nil"
+        self.cid = String(item.cid)
     }
-    init(displayText: String){
-        self.displayText = displayText
-    }
+//    init(displayText: String){
+//        self.displayText = displayText
+//    }
 }

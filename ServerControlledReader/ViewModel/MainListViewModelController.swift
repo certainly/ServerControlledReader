@@ -29,6 +29,9 @@ class MainListViewModelController {
 //            }
             mainlistViewModelList.removeAll()
             mainlistViewModelList = list.map(){MainListViewModel(withItem: $0 ) }
+            
+            
+            
             success?()
             print("retrieve over")
         } catch {
@@ -57,19 +60,23 @@ class MainListViewModelController {
         }
     }
     
-    private func  retrieveMainListsStub()   -> [MainListViewModel] {
-        var rz = [MainListViewModel]()
-        let data1 = MainListViewModel(displayText: "testdata111")
-        let data2 = MainListViewModel(displayText: "testdata2222")
-        let data3 = MainListViewModel(displayText: "testdata3")
-        rz.append(data1)
-        rz.append(data2)
-        rz.append(data3)
-        return rz
-    }
+//    private func  retrieveMainListsStub()   -> [MainListViewModel] {
+//        var rz = [MainListViewModel]()
+//        let data1 = MainListViewModel(displayText: "testdata111")
+//        let data2 = MainListViewModel(displayText: "testdata2222")
+//        let data3 = MainListViewModel(displayText: "testdata3")
+//        rz.append(data1)
+//        rz.append(data2)
+//        rz.append(data3)
+//        return rz
+//    }
     
     func viewModel(at index: Int) -> MainListViewModel {
         return mainlistViewModelList[index]
+    }
+    
+    func getCidAt(_ index: Int) -> String {
+        return mainlistViewModelList[index].cid
     }
     
     func appendList() {

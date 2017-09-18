@@ -53,6 +53,22 @@ class MainListLocalDataManager {
         
     }
     
+    func retrieveDetailList(_ cid: String) throws  -> [MainListItem] {
+        let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
+        request.predicate = NSPredicate(format: "cid == %@", cid)
+        let results = try backgroundContext.fetch(request)
+       return results
+    }
+    
+    func testFetch() throws {
+        let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
+        request.predicate = NSPredicate(format: "cid == %@", "391458")
+        let results = try backgroundContext.fetch(request)
+        print(results[0].content)
+       dump(results)
+        
+    }
+    
     func reset()  {
         let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
         let results = try? backgroundContext.fetch(request)
