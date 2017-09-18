@@ -15,13 +15,14 @@ enum Result<Value> {
 
 
 class NetworkProvider {
+    private static let usingTestServer = true
+    static private let host = usingTestServer ? "http://10.0.0.9:8083" : "http://104.194.77.164:8083"
     
     static func fetchMainList(update: Bool, _ success: (([JSONItem]) -> Void)?) {
         let url:String
-//        let host = "http://104.194.77.164:8083"
-        let host = "http://10.0.0.9:8083"
+
         if update {
-            url = host + "/api/v1/posts/refresh"
+            url =  host + "/api/v1/posts/refresh"
         } else {
             url = host + "/api/v1/posts/all"
         }
@@ -34,6 +35,13 @@ class NetworkProvider {
             fatalError("error: \(error.localizedDescription)")
             }
         }
+        
+    }
+    
+    static func fetchDetailList(cid: String, _ success:(([JSONItem]) -> Void)?) {
+        let url: String
+        url = host + "/api/v1/posts/detail"
+        
         
     }
     

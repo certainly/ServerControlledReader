@@ -53,6 +53,17 @@ class DetailTableViewController: UITableViewController {
         return itemCell
     }
 
+    private func refresh() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        detailListViewModelController.refreshDetailList(cid: parentId, { [unowned self] in
+            print("refresh detail...")
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            self.tableView.reloadData()
+            }, failure: {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            })
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

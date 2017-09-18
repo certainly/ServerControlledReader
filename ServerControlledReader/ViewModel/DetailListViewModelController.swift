@@ -50,4 +50,7 @@ class DetailListViewModelController {
             failure?()
         }
     }
+    func refreshDetailList(cid: String, _ success: (() -> Void)?, failure: ( () -> Void)?) {
+        
+    }
 }
