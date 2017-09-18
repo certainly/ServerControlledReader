@@ -14,6 +14,11 @@ class DetailListViewModelController {
     fileprivate var detailListViewModelList: [DetailListViewModel] = []
     fileprivate var dataManager = MainListLocalDataManager()
     
+    var needRefresh: Bool {
+        return detailListViewModelList.count == 1 && ( detailListViewModelList[0].source == "V2" || detailListViewModelList[0].kids.characters.count > 0 )
+    }
+    
+    
     var itemsCount: Int {
         return detailListViewModelList.count
     }
@@ -34,6 +39,8 @@ class DetailListViewModelController {
             //                fetchFromServer(success)
             //                return
             //            }
+
+            
             detailListViewModelList.removeAll()
             detailListViewModelList = list.map(){DetailListViewModel(withItem: $0 ) }
             success?()

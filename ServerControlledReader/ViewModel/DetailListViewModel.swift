@@ -10,8 +10,18 @@ import Foundation
 
 class DetailListViewModel {
     var displayText: String
+    var isMetaNode = false
+    var kids: String
+    var source: String
+    
     init(withItem: MainListItem) {
         self.displayText = withItem.other ?? "nil"
+        self.kids = withItem.kids!
+        self.source = withItem.source!
+        let sc =  withItem.source
+        if sc == "V2" || sc == "HN" {
+            isMetaNode = true
+        }
     }
     
 }

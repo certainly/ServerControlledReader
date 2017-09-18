@@ -21,6 +21,9 @@ class DetailTableViewController: UITableViewController {
         detailListViewModelController.retrieveDetailList(cid: parentId,  { [unowned self] in
             print("reload...")
             self.tableView.reloadData()
+            if self.detailListViewModelController.needRefresh {
+                print("needRefresh!")
+            }
             }, failure: nil)
 
         // Uncomment the following line to preserve selection between presentations
