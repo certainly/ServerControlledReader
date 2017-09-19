@@ -41,12 +41,21 @@ class NetworkProvider {
     static func fetchDetailList(cid: String, _ success:(([JSONItem]) -> Void)?) {
         let url: String
         url = host + "/api/v1/posts/detail"
+        getPosts(requesturl: url) { (result) in
+            switch result {
+            case .success(let posts):
+                print("cout: \(posts.count)")
+                success?(posts)
+            case .failure(let error):
+                fatalError("error: \(error.localizedDescription)")
+            }
+        }
         
         
     }
     
-   private static func getPosts(requesturl: String, completion: ((Result<[JSONItem]>) -> Void)?) {
-//        var urlComponents = URLComponents()
+    private static func getPosts(requesturl: String, headerPara: [String: String]? = nil ,completion: ((Result<[JSONItem]>) -> Void)?) {
+
 //        urlComponents.scheme = "https"
 //        urlComponents.host = "jsonplaceholder.typicode.com"
 //        urlComponents.path = "/posts"
@@ -54,8 +63,14 @@ class NetworkProvider {
 //        urlComponents.queryItems = [userIdItem]
         guard let url = URL(string: requesturl)else { fatalError("Could not create URL from components") }
         
+    
+       
+        
         var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        request.httpMethod = "POST"
+        for (key , val) in headerPara ?? [:] {
+            request.setValue(key, forHTTPHeaderField: val)
+        }
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)

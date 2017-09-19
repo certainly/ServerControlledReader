@@ -47,6 +47,7 @@ class MainListLocalDataManager {
     func retrieveMainList() throws  -> [MainListItem] {
         let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
         let sort = NSSortDescriptor(key: #keyPath(MainListItem.time), ascending: false)
+        request.predicate = NSPredicate(format: "source IN {'V2', 'HN'}")
         request.sortDescriptors = [sort]
         let results = try backgroundContext.fetch(request)
         return results 

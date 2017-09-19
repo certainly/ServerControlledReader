@@ -23,6 +23,7 @@ class DetailTableViewController: UITableViewController {
             self.tableView.reloadData()
             if self.detailListViewModelController.needRefresh {
                 print("needRefresh!")
+                self.refresh()
             }
             }, failure: nil)
 
