@@ -20,6 +20,7 @@ class DetailTableViewController: UITableViewController {
         
         detailListViewModelController.retrieveDetailList(cid: parentId,  { [unowned self] in
             print("reload...")
+            self.setTitle()
             self.tableView.reloadData()
             if self.detailListViewModelController.needRefresh {
                 print("needRefresh!")
@@ -34,6 +35,10 @@ class DetailTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    private func setTitle() {
+        self.title = detailListViewModelController.title
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

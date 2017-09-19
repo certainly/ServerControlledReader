@@ -63,7 +63,7 @@ class MainListLocalDataManager {
     
     func retrieveDetailCommentsList(_ cid: String) throws  -> [MainListItem] {
         let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
-        request.predicate = NSPredicate(format: "source == %@ AND other == %@", SourceType.V2comment.rawValue, cid)
+        request.predicate = NSPredicate(format: " other == %@", cid)
         let sort = NSSortDescriptor(key: #keyPath(MainListItem.time), ascending: true)
         request.sortDescriptors = [sort]
         let results = try backgroundContext.fetch(request)

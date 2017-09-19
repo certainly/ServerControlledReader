@@ -18,6 +18,7 @@ class DetailListViewModelController {
         return detailListViewModelList.count == 1 && ( detailListViewModelList[0].source == "V2" || detailListViewModelList[0].kids.characters.count > 0 )
     }
     
+    var title: String?
 //    var source: String {
 //        return detailListViewModelList[0].source
 //    }
@@ -38,7 +39,7 @@ class DetailListViewModelController {
             let firstMeta = try  dataManager.retrieveDetailList(cid)
             var list = try dataManager.retrieveDetailCommentsList(cid)
             list.insert(firstMeta, at: 0)
-            
+            title =  firstMeta.content
             //            if list.count == 0 {
             //                print("empty list!")
             //                fetchFromServer(success)
