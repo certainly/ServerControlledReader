@@ -58,7 +58,7 @@ class DetailListViewModelController {
     func refreshDetailList(cid: String, _ success: (() -> Void)?, failure: ( () -> Void)?) {
         NetworkProvider.fetchDetailList(cid: cid) { [weak self] data in
             print("exe suc")
-            self?.dataManager.insertDataArray(data)
+            self?.dataManager.updateCommentDataArray(data, withId: cid)
             DispatchQueue.main.async {
                 self?.retrieveDetailList(cid: cid, success, failure: nil)
             }

@@ -53,7 +53,10 @@ class DetailTableViewController: UITableViewController {
         itemCell.cellModel = detailListViewModelController.viewModel(at: indexPath.row)
         return itemCell
     }
-
+    @IBAction func refreshTapped(_ sender: UIBarButtonItem) {
+        refresh()
+    }
+    
     private func refresh() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         detailListViewModelController.refreshDetailList(cid: parentId, { [unowned self] in

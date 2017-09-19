@@ -104,15 +104,28 @@ class MainListLocalDataManager {
     
     func insertDataArrayAfterReset(_ array: [JSONItem]) {
        reset()
-        insertDataArray(array)
+        insertDataArrayImpl(array)
     }
     
-    func insertDataArray(_ array: [JSONItem]) {
-//        reset()
+    func insertDataArrayImpl(_ array: [JSONItem]) {
+        //        reset()
         for item in array {
             _ = insertMainListItem(cid: Int64(item.cid), content: item.content, time: item.time, source: item.source, kids: item.kids, other: item.other)
         }
         save()
+    }
+    
+    
+    func updateCommentDataArray(_ array: [JSONItem], withId cid: String) {
+//        reset()
+        let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
+        request.predicate = NSPredicate(format: "other == %@",  cid)
+       
+        let results = try? backgroundContext.fetch(request)
+        for item in results! {
+            backgroundContext.delete(item)
+        }
+        insertDataArrayImpl(array)
     }
     
     func  save() {

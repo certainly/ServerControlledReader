@@ -27,7 +27,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="3eQ-sf-WRk" kind="show" identifier="DetailSegue" id="kGF-Ra-atp"/>
+                                    <segue destination="3eQ-sf-WRk" kind="show" identifier="DetailSegue" id="nQ0-hM-5Yt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -72,10 +72,19 @@
                             <outlet property="delegate" destination="3eQ-sf-WRk" id="L90-Xp-d5I"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="J5t-Pq-JUc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="7wL-vO-GPg">
+                            <connections>
+                                <action selector="refreshTapped:" destination="3eQ-sf-WRk" id="KVj-rU-jce"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NiD-kC-d1t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1491" y="-455"/>
+            <point key="canvasLocation" x="2170" y="-447"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gB5-M1-W2M">

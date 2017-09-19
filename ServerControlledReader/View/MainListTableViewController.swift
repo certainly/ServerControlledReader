@@ -112,6 +112,7 @@ class MainListTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "DetailSegue" {
+//            let navigationController = segue.destination as! UINavigationController
             let detailTableViewController = segue.destination as! DetailTableViewController
             let index = tableView.indexPathForSelectedRow!.row
             detailTableViewController.parentId = mainlistViewModelController.getCidAt(index)
