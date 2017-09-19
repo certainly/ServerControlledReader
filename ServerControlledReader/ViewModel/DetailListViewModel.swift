@@ -15,7 +15,7 @@ class DetailListViewModel {
     var source: String
     
     init(withItem: MainListItem) {
-        self.displayText = withItem.other ?? "nil"
+        self.displayText = isMetaNode ? withItem.other! : withItem.content!
         self.kids = withItem.kids!
         self.source = withItem.source!
         let sc =  withItem.source

@@ -47,18 +47,27 @@ class MainListLocalDataManager {
     func retrieveMainList() throws  -> [MainListItem] {
         let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
         let sort = NSSortDescriptor(key: #keyPath(MainListItem.time), ascending: false)
-        request.predicate = NSPredicate(format: "source IN {'V2', 'HN'}")
         request.sortDescriptors = [sort]
+        request.predicate = NSPredicate(format: "source IN {'V2', 'HN'}")
         let results = try backgroundContext.fetch(request)
         return results 
         
     }
     
-    func retrieveDetailList(_ cid: String) throws  -> [MainListItem] {
+    func retrieveDetailList(_ cid: String) throws  -> MainListItem {
         let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
         request.predicate = NSPredicate(format: "cid == %@", cid)
         let results = try backgroundContext.fetch(request)
-       return results
+       return results[0]
+    }
+    
+    func retrieveDetailCommentsList(_ cid: String) throws  -> [MainListItem] {
+        let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
+        request.predicate = NSPredicate(format: "source == %@ AND other == %@", SourceType.V2comment.rawValue, cid)
+        let sort = NSSortDescriptor(key: #keyPath(MainListItem.time), ascending: false)
+        request.sortDescriptors = [sort]
+        let results = try backgroundContext.fetch(request)
+        return results
     }
     
     func testFetch() throws {
@@ -93,8 +102,13 @@ class MainListLocalDataManager {
     
 
     
-    func insertDataArray(_ array: [JSONItem]) {
+    func insertDataArrayAfterReset(_ array: [JSONItem]) {
        reset()
+        insertDataArray(array)
+    }
+    
+    func insertDataArray(_ array: [JSONItem]) {
+//        reset()
         for item in array {
             _ = insertMainListItem(cid: Int64(item.cid), content: item.content, time: item.time, source: item.source, kids: item.kids, other: item.other)
         }

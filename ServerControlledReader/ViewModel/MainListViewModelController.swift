@@ -33,7 +33,7 @@ class MainListViewModelController {
     
     func refreshMainLists(_ success: (() -> Void)?, failure: ( () -> Void)?)  {
         do{
-            fetchFromServer(update: false, success)
+            fetchFromServer(update: true, success)
         } catch {
             print(error)
             failure?()
@@ -43,7 +43,7 @@ class MainListViewModelController {
     private func fetchFromServer(update: Bool = false,  _ success: (() -> Void)?) {
         NetworkProvider.fetchMainList(update: update) { [unowned self] data in
             print("exe suc")
-            self.dataManager.insertDataArray(data)
+            self.dataManager.insertDataArrayAfterReset(data)
             DispatchQueue.main.async {
                 self.retrieveMainLists(success, failure: nil)
             }

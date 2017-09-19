@@ -18,6 +18,9 @@ class DetailListViewModelController {
         return detailListViewModelList.count == 1 && ( detailListViewModelList[0].source == "V2" || detailListViewModelList[0].kids.characters.count > 0 )
     }
     
+//    var source: String {
+//        return detailListViewModelList[0].source
+//    }
     
     var itemsCount: Int {
         return detailListViewModelList.count
@@ -32,7 +35,9 @@ class DetailListViewModelController {
             //            dataManager.reset()
             //            dataManager.makeFakeData()
             
-            let list = try  dataManager.retrieveDetailList(cid)
+            let firstMeta = try  dataManager.retrieveDetailList(cid)
+            var list = try dataManager.retrieveDetailCommentsList(cid)
+            list.insert(firstMeta, at: 0)
             
             //            if list.count == 0 {
             //                print("empty list!")
@@ -44,7 +49,7 @@ class DetailListViewModelController {
             detailListViewModelList.removeAll()
             detailListViewModelList = list.map(){DetailListViewModel(withItem: $0 ) }
             success?()
-            print("retrieve over")
+            print("retrieve over \(list.count)")
         } catch {
             print(error)
             failure?()
@@ -53,10 +58,10 @@ class DetailListViewModelController {
     func refreshDetailList(cid: String, _ success: (() -> Void)?, failure: ( () -> Void)?) {
         NetworkProvider.fetchDetailList(cid: cid) { [weak self] data in
             print("exe suc")
-//            self?.dataManager.insertDataArray(data)
-//            DispatchQueue.main.async {
-//                self.retrieveMainLists(success, failure: nil)
-//            }
+            self?.dataManager.insertDataArray(data)
+            DispatchQueue.main.async {
+                self?.retrieveDetailList(cid: cid, success, failure: nil)
+            }
         }
     }
 }

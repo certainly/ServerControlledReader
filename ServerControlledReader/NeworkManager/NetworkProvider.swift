@@ -41,7 +41,8 @@ class NetworkProvider {
     static func fetchDetailList(cid: String, _ success:(([JSONItem]) -> Void)?) {
         let url: String
         url = host + "/api/v1/posts/detail"
-        getPosts(requesturl: url) { (result) in
+        let header = ["cid" : cid]
+        getPosts(requesturl: url, headerPara: header) { (result) in
             switch result {
             case .success(let posts):
                 print("cout: \(posts.count)")
@@ -69,7 +70,7 @@ class NetworkProvider {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         for (key , val) in headerPara ?? [:] {
-            request.setValue(key, forHTTPHeaderField: val)
+            request.setValue(val, forHTTPHeaderField: key)
         }
         
         let config = URLSessionConfiguration.default
