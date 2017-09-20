@@ -18,6 +18,11 @@ class DetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        let swiperight: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondSwiperight))
+        swiperight.direction = .right
+        self.view!.addGestureRecognizer(swiperight)
+        
         detailListViewModelController.retrieveDetailList(cid: parentId,  { [unowned self] in
             print("reload...")
             self.setTitle()
@@ -35,6 +40,12 @@ class DetailTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    @objc func respondSwiperight(gestureRecognizer: UISwipeGestureRecognizer) {
+//        print("get down")
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     private func setTitle() {
         self.title = detailListViewModelController.title
     }
