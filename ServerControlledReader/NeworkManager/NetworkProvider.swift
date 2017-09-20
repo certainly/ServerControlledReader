@@ -38,10 +38,10 @@ class NetworkProvider {
         
     }
     
-    static func fetchDetailList(cid: String, _ success:(([JSONItem]) -> Void)?) {
+    static func fetchDetailList(header: [String: String], _ success:(([JSONItem]) -> Void)?) {
         let url: String
         url = host + "/api/v1/posts/detail"
-        let header = ["cid" : cid]
+//        let header = ["cid" : cid]
         getPosts(requesturl: url, headerPara: header) { (result) in
             switch result {
             case .success(let posts):

@@ -10,7 +10,7 @@ import Foundation
 
 class MainListViewModelController {
     fileprivate var mainlistViewModelList: [MainListViewModel] = []
-    fileprivate var dataManager = MainListLocalDataManager()
+    fileprivate var dataManager = MainListLocalDataManager.sharedInstance
     var itemsCount: Int {
         return mainlistViewModelList.count
     }

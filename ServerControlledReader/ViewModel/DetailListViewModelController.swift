@@ -12,7 +12,7 @@ class DetailListViewModelController {
     
    
     fileprivate var detailListViewModelList: [DetailListViewModel] = []
-    fileprivate var dataManager = MainListLocalDataManager()
+    fileprivate var dataManager = MainListLocalDataManager.sharedInstance
     
     var needRefresh: Bool {
         return detailListViewModelList.count == 1 && ( detailListViewModelList[0].source == "V2" || detailListViewModelList[0].kids.characters.count > 0 )
@@ -33,7 +33,7 @@ class DetailListViewModelController {
     
     func retrieveDetailList(cid: String, _ success: (() -> Void)?, failure: ( () -> Void)?)  {
         do{
-            //            dataManager.reset()
+                        try dataManager.test()
             //            dataManager.makeFakeData()
             
             let firstMeta = try  dataManager.retrieveDetailList(cid)
@@ -57,12 +57,24 @@ class DetailListViewModelController {
         }
     }
     func refreshDetailList(cid: String, _ success: (() -> Void)?, failure: ( () -> Void)?) {
-        NetworkProvider.fetchDetailList(cid: cid) { [weak self] data in
+       
+        NetworkProvider.fetchDetailList(header :  forgeHeaderForRequest(cid)) { [weak self] data in
             print("exe suc")
             self?.dataManager.updateCommentDataArray(data, withId: cid)
             DispatchQueue.main.async {
                 self?.retrieveDetailList(cid: cid, success, failure: nil)
             }
         }
+    }
+    
+    private func forgeHeaderForRequest(_ cid: String) -> [String:String] {
+        var rz : [String : String] = [:]
+        let kids = detailListViewModelList[0].kids
+        if kids.characters.count > 0 {
+            rz = ["kids" : kids]
+        } else {
+            rz = ["cid" : cid ]
+        }
+        return rz
     }
 }

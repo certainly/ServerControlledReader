@@ -14,8 +14,11 @@ class MainListLocalDataManager {
     
     let persistentContainer: NSPersistentContainer!
     
+    static let sharedInstance: MainListLocalDataManager = { MainListLocalDataManager()} ()
+    
     init(container: NSPersistentContainer) {
         self.persistentContainer = container
+          print(container.persistentStoreDescriptions.first?.url)
         self.persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
         
     }
@@ -70,12 +73,9 @@ class MainListLocalDataManager {
         return results
     }
     
-    func testFetch() throws {
-        let request: NSFetchRequest<MainListItem> = MainListItem.fetchRequest()
-        request.predicate = NSPredicate(format: "cid == %@", "391458")
-        let results = try backgroundContext.fetch(request)
-        print(results[0].content)
-       dump(results)
+    func test() throws {
+//        let container = NSPersistentContainer(name: "***")
+//      reset()
         
     }
     
