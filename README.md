@@ -5,4 +5,6 @@
 服务器用vapor(server-side-swift)实现  
 客户端swift4实现，MVVM架构，coredata存储
 
-[服务器端代码](https://github.com/certainly/VaporTestSwift4.git) 
+[服务器端代码](https://github.com/certainly/VaporTestSwift4.git)  
+
+<img src="https://i.imgur.com/OiNI9Gw.gif">
