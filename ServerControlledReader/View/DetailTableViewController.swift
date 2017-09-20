@@ -13,7 +13,7 @@ class DetailTableViewController: UITableViewController {
     var parentId: String!
     
     let detailListViewModelController = DetailListViewModelController()
-    
+//    var refreshControl: UIRefreshControl?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,11 @@ class DetailTableViewController: UITableViewController {
         let swiperight: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondSwiperight))
         swiperight.direction = .right
         self.view!.addGestureRecognizer(swiperight)
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
+        self.refreshControl = refreshControl
+        
         
         detailListViewModelController.retrieveDetailList(cid: parentId,  { [unowned self] in
             print("reload...")
@@ -73,12 +78,13 @@ class DetailTableViewController: UITableViewController {
         refresh()
     }
     
-    private func refresh() {
+    @objc private func refresh() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         detailListViewModelController.refreshDetailList(cid: parentId, { [unowned self] in
             print("refresh detail...")
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
             }, failure: {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             })
