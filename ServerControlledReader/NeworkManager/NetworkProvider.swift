@@ -15,7 +15,7 @@ enum Result<Value> {
 
 
 class NetworkProvider {
-    private static let usingTestServer = true
+    private static let usingTestServer = false
     static private let host = usingTestServer ? "http://10.0.0.9:8083" : "http://104.194.77.164:8083"
     
     static func fetchMainList(update: Bool, _ success: (([JSONItem]) -> Void)?) {

@@ -17,7 +17,11 @@ class DetailListTableViewCell: UITableViewCell {
     }
     
     func bindViewModel() {
-        textLabel?.text = cellModel?.displayText
+        var string = NSMutableAttributedString(string: (cellModel?.displayText)!)
+        textLabel?.attributedText = string
+//        textLabel?.attributedText  = cellModel?.displayText
+        
+//        textLabel?.text = cellModel?.displayText
     }
 
 }
