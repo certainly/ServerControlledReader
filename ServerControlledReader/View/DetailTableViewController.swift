@@ -19,9 +19,13 @@ class DetailTableViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        let swiperight: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondSwiperight))
-        swiperight.direction = .right
-        self.view!.addGestureRecognizer(swiperight)
+        guard let systemGes = self.navigationController?.interactivePopGestureRecognizer,
+            let targets = systemGes.value(forKey: "_targets") as? [NSObject],
+            let targetObjc = targets.first,let target = targetObjc.value(forKey: "target"),
+            let gesView = systemGes.view else { return }
+        gesView.addGestureRecognizer(UIPanGestureRecognizer(target:target, action: Selector(("handleNavigationTransition:"))))
+        
+
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
